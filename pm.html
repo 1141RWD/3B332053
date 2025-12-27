@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>勤益排球社｜歷史與榮耀</title>
+<style>
+:root{
+  --blue-dark:#0f4c81;
+  --blue:#3b82c4;
+  --yellow:#facc15;
+  --bg:#f8fafc;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:"Segoe UI",Arial;
+}
+
+body{
+  background:var(--bg);
+  color:#333;
+}
+
+/* ===== Header ===== */
+header{
+  position:relative;
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  align-items:center;
+  padding:15px 25px;
+  background:linear-gradient(90deg,var(--blue-dark),var(--blue));
+  color:#fff;
+}
+
+/* LOGO 置中 */
+.logo{
+  grid-column:2;
+  text-align:center;
+  font-size:1.7rem;
+  font-weight:800;
+  letter-spacing:3px;
+}
+
+/* ===== Nav ===== */
+nav{
+  grid-column:3;
+  justify-self:end;
+}
+
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:22px;
+}
+
+nav a{
+  color:#fff;
+  text-decoration:none;
+  font-weight:bold;
+  transition:.2s;
+}
+
+nav a:hover{
+  color:var(--yellow);
+}
+
+section{
+  max-width:1000px;
+  margin:auto;
+  padding:60px 20px;
+}
+
+h2{
+  font-size:1.8rem;
+  color:var(--blue-dark);
+  margin-bottom:30px;
+  position:relative;
+}
+
+h2::before{
+  content:"";
+  position:absolute;
+  left:-15px;
+  top:50%;
+  transform:translateY(-50%);
+  width:6px;
+  height:70%;
+  background:var(--yellow);
+  border-radius:3px;
+}
+
+/* ===== Hamburger ===== */
+.hamburger{
+  display:none;
+  cursor:pointer;
+}
+
+.hamburger span{
+  display:block;
+  width:26px;
+  height:3px;
+  background:#fff;
+  margin:5px 0;
+  border-radius:2px;
+}
+
+/* ===== Mobile ===== */
+@media(max-width:768px){
+  nav{
+    position:absolute;
+    top:100%;
+    right:0;
+    width:220px;
+    background:var(--blue-dark);
+    display:none;
+  }
+
+  nav.active{
+    display:block;
+  }
+
+  nav ul{
+    flex-direction:column;
+    padding:15px;
+    gap:15px;
+  }
+
+  .hamburger{
+    display:block;
+    grid-column:3;
+    justify-self:end;
+  }
+}
+
+/* Sections */
+section{
+  max-width:1000px;
+  margin:auto;
+  padding:60px 20px;
+}
+
+h2{
+  font-size:1.8rem;
+  color:var(--blue-dark);
+  margin-bottom:18px;
+  position:relative;
+}
+
+h2::before{
+  content:"";
+  position:absolute;
+  left:-15px;
+  top:50%;
+  transform:translateY(-50%);
+  width:6px;
+  height:70%;
+  background:var(--yellow);
+  border-radius:3px;
+}
+
+p{
+  line-height:1.8;
+}
+
+ul.officers{
+  list-style:none;
+  padding-left:0;
+}
+ul.officers li{
+  background:#fff;
+  border-left:6px solid var(--blue-dark);
+  margin-bottom:12px;
+  padding:15px 18px;
+  border-radius:8px;
+  box-shadow:0 3px 8px rgba(0,0,0,0.07);
+  font-size:1.1rem;
+}
+ul.officers li span{
+  font-weight:bold;
+  color:var(--blue-dark);
+  margin-left:8px;
+}
+ul.officers li .desc{
+  display:block;
+  margin-top:6px;
+  font-size:0.95rem;
+  color:#555;
+}
+/* Accordion */
+.accordion-btn{
+  width:100%;
+  text-align:left;
+  background:#f1f5f9;
+  border:none;
+  padding:12px 18px;
+  margin-bottom:5px;
+  font-weight:bold;
+  cursor:pointer;
+  border-left:6px solid var(--blue-dark);
+  border-radius:6px;
+}
+.accordion-content{
+  display:none;
+  padding:10px 20px;
+  background:#fff;
+  border-radius:6px;
+  box-shadow:0 3px 8px rgba(0,0,0,0.05);
+}
+.accordion-content ul{
+  list-style:none;
+  padding-left:0;
+}
+.accordion-content li{
+  padding:5px 0;
+}
+
+/* ===== 幹部字卡 ===== */
+.officer-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:25px;
+}
+
+.officer-card{
+  background:#fff;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 8px 20px rgba(0,0,0,.08);
+  transition:.3s;
+  text-align:center;
+}
+
+.officer-card:hover{
+  transform:translateY(-6px);
+}
+
+.officer-photo{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  background:#ddd;
+}
+
+.officer-body{
+  padding:18px;
+}
+
+.officer-body h3{
+  color:var(--blue-dark);
+  margin-bottom:4px;
+}
+
+.officer-body span{
+  display:block;
+  font-weight:bold;
+  margin-bottom:6px;
+}
+
+.officer-body p{
+  font-size:.9rem;
+  color:#555;
+  line-height:1.5;
+  margin-bottom:10px;
+}
+
+.contact{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  font-size:.9rem;
+}
+
+.contact a{
+  text-decoration:none;
+  color:#0f4c81;
+  background:#f1f5f9;
+  padding:6px 10px;
+  border-radius:20px;
+  transition:.2s;
+}
+
+.contact a:hover{
+  background:var(--yellow);
+}
+
+footer{
+  background:var(--blue-dark);
+  color:#fff;
+  text-align:center;
+  padding:30px 15px;
+}
+
+/* ===== Nav ===== */
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:25px;
+  justify-content:center;
+  margin-top:15px;
+}
+
+nav a{
+  color:#fff;
+  text-decoration:none;
+  font-weight:bold;
+  transition:.2s;
+}
+
+nav a:hover{
+  color:var(--yellow);
+}
+
+/* ===== Hamburger ===== */
+.hamburger{
+  display:none;
+  position:absolute;
+  right:20px;
+  top:25px;
+  cursor:pointer;
+}
+
+.hamburger span{
+  display:block;
+  width:26px;
+  height:3px;
+  background:#fff;
+  margin:5px 0;
+  border-radius:2px;
+  transition:.3s;
+}
+
+/* ===== Mobile ===== */
+@media(max-width:768px){
+  nav{
+    display:none;
+    margin-top:20px;
+  }
+
+  nav.active{
+    display:block;
+  }
+
+  nav ul{
+    flex-direction:column;
+    gap:15px;
+  }
+
+  .hamburger{
+    display:block;
+  }
+}
+
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">幹部資訊</div>
+
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <nav id="menu">
+    <ul>
+      <li><a href="index.html">首頁</a></li>
+      <li><a href="pm.html">幹部資訊</a></li>
+      <li><a href="active.html">過往活動</a></li>
+      <li><a href="pass.html">歷史榮耀</a></li>
+    </ul>
+  </nav>
+  <!--<a href="index.html" class="back-home">回到首頁</a>-->
+</header>
+
+<section>
+  <h2>現任幹部</h2>
+
+  <div class="officer-grid">
+
+    <div class="officer-card">
+      <img src="社長.jpg" class="officer-photo" alt="社長">
+      <div class="officer-body">
+        <span>社長</span>
+        <h3>阮郁心</h3>
+        <p>負責整體社團規劃、對外聯繫與方向決策。</p>
+        <div class="contact">
+          <a href="https://www.instagram.com/blanco.___.224/">IG</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="officer-card">
+      <img src="副社.jpg" class="officer-photo" alt="副社">
+      <div class="officer-body">
+        <span>副社</span>
+        <h3>蘇偉達</h3>
+        <p>協助社長處理社務，並支援活動規劃與執行。</p>
+        <div class="contact">
+          <a href="https://www.instagram.com/weida1222/">IG</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="officer-card">
+      <img src="活動.jpg" class="officer-photo" alt="活動">
+      <div class="officer-body">
+        <span>活動</span>
+        <h3>蔡佳穎</h3>
+        <p>負責策劃、安排與執行各項社團活動。</p>
+        <div class="contact">
+          <a href="https://www.instagram.com/jiaying_01_31/">IG</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="officer-card">
+      <img src="美宣.png" class="officer-photo" alt="美宣">
+      <div class="officer-body">
+        <span>美宣</span>
+        <h3>廖家曼</h3>
+        <p>經營社群平台與活動視覺設計。</p>
+        <div class="contact">
+          <a href="https://www.instagram.com/_nvi.yy_/">IG</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="officer-card">
+      <img src="器材.jpg" class="officer-photo" alt="器材">
+      <div class="officer-body">
+        <span>器材</span>
+        <h3>邱子玄</h3>
+        <p>管理排球與場地器材，確保使用安全。</p>
+        <div class="contact">
+          <a href="https://www.instagram.com/qzx03_08/">IG</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="officer-card">
+      <img src="總務.jpg" class="officer-photo" alt="總務">
+      <div class="officer-body">
+        <span>總務</span>
+        <h3>胡雅惠</h3>
+        <p>負責社團經費收支與帳務管理。</p>
+        <div class="contact">
+          <a href="https://www.instagram.com/hyh___24/">IG</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="officer-card">
+      <img src="機動.jpg" class="officer-photo" alt="機動">
+      <div class="officer-body">
+        <span>機動</span>
+        <h3>黃俊傑</h3>
+        <p>隨時支援社內各項事務與活動現場。</p>
+        <div class="contact">
+          <a href="https://www.instagram.com/jluffy_7_friend/">IG</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="officer-card">
+      <img src="球經.jpg" class="officer-photo" alt="球經">
+      <div class="officer-body">
+        <span>球經</span>
+        <h3>張貝琳</h3>
+        <p>隱藏人物，負責幫助社團在日常上課拍照攝影。</p>
+        <div class="contact">
+          <a href="https://www.instagram.com/bei_lyin_/">IG</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</section>
+
+<section>
+  <h2>歷任幹部</h2>
+  <button class="accordion-btn">17屆</button>
+  <div class="accordion-content">
+    <ul>
+      <li>社長：蔡佳穎</li>
+      <li>副社：胡雅惠</li>
+      <li>活動：黃俊傑</li>
+      <li>美宣：邱子玄</li>
+      <li>器材：丁宏明</li>
+      <li>總務：王安喬</li>
+    </ul>
+  </div>
+
+  <button class="accordion-btn">16屆</button>
+  <div class="accordion-content">
+    <ul>
+      <li>社長：黃俊傑</li>
+      <li>副社：王安喬</li>
+      <li>活動：賴俊瑋</li>
+      <li>器材：李敬璁</li>
+      <li>總務：陳東振</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <p>© 勤益排球社 Volleyball Club</p>
+</footer>
+
+<script>
+const accBtns = document.querySelectorAll('.accordion-btn');
+accBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const content = btn.nextElementSibling;
+    content.style.display = content.style.display === 'block' ? 'none' : 'block';
+  });
+});
+</script>
+</body>
+</html>

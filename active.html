@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>勤益排球社｜過往活動</title>
+
+<style>
+:root{
+  --blue-dark:#0f4c81;
+  --blue:#3b82c4;
+  --yellow:#facc15;
+  --bg:#f8fafc;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:"Segoe UI",Arial;
+}
+
+body{
+  background:var(--bg);
+  color:#333;
+}
+
+/* ===== Header ===== */
+header{
+  position:relative;
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  align-items:center;
+  padding:15px 25px;
+  background:linear-gradient(90deg,var(--blue-dark),var(--blue));
+  color:#fff;
+}
+
+/* LOGO 置中 */
+.logo{
+  grid-column:2;
+  text-align:center;
+  font-size:1.7rem;
+  font-weight:800;
+  letter-spacing:3px;
+}
+
+/* ===== Nav ===== */
+nav{
+  grid-column:3;
+  justify-self:end;
+}
+
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:22px;
+}
+
+nav a{
+  color:#fff;
+  text-decoration:none;
+  font-weight:bold;
+  transition:.2s;
+}
+
+nav a:hover{
+  color:var(--yellow);
+}
+
+/* ===== Hamburger ===== */
+.hamburger{
+  display:none;
+  cursor:pointer;
+}
+
+.hamburger span{
+  display:block;
+  width:26px;
+  height:3px;
+  background:#fff;
+  margin:5px 0;
+  border-radius:2px;
+}
+
+/* ===== Mobile ===== */
+@media(max-width:768px){
+  nav{
+    position:absolute;
+    top:100%;
+    right:0;
+    width:220px;
+    background:var(--blue-dark);
+    display:none;
+  }
+
+  nav.active{
+    display:block;
+  }
+
+  nav ul{
+    flex-direction:column;
+    padding:15px;
+    gap:15px;
+  }
+
+  .hamburger{
+    display:block;
+    grid-column:3;
+    justify-self:end;
+  }
+}
+
+/* Sections */
+section{
+  max-width:1000px;
+  margin:auto;
+  padding:60px 20px;
+}
+
+h2{
+  font-size:1.8rem;
+  color:var(--blue-dark);
+  margin-bottom:18px;
+  position:relative;
+}
+
+h2::before{
+  content:"";
+  position:absolute;
+  left:-15px;
+  top:50%;
+  transform:translateY(-50%);
+  width:6px;
+  height:70%;
+  background:var(--yellow);
+  border-radius:3px;
+}
+
+p{
+  line-height:1.8;
+}
+
+
+/* ===== 活動卡片 ===== */
+.activity-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+}
+
+.activity-card{
+  background:#fff;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
+  transition:.3s;
+}
+
+.activity-card:hover{
+  transform:translateY(-6px);
+}
+
+.activity-media img,
+.activity-media video{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  background:#000;
+}
+
+.activity-content{
+  padding:18px;
+}
+
+.activity-content h3{
+  color:var(--blue-dark);
+  margin-bottom:6px;
+}
+
+.activity-content span{
+  font-size:.9rem;
+  color:#666;
+}
+
+.activity-content p{
+  margin-top:10px;
+  line-height:1.6;
+}
+
+.tag{
+  display:inline-block;
+  margin-top:12px;
+  background:var(--yellow);
+  color:#0f4c81;
+  padding:4px 12px;
+  border-radius:20px;
+  font-size:.85rem;
+  font-weight:bold;
+}
+
+/* ===== Accordion ===== */
+.accordion-btn{
+  width:100%;
+  text-align:left;
+  background:#f1f5f9;
+  border:none;
+  padding:14px 18px;
+  margin-bottom:10px;
+  font-weight:bold;
+  font-size:1rem;
+  cursor:pointer;
+  border-left:6px solid var(--blue-dark);
+  border-radius:8px;
+  transition:.2s;
+}
+
+.accordion-btn:hover{
+  background:#eaf1f8;
+}
+
+.accordion-content{
+  display:none;
+  margin-bottom:30px;
+}
+
+/* ===== 活動橫向瀏覽（通用） ===== */
+.activity-scroll{
+  display:flex;
+  gap:20px;
+  overflow-x:auto;
+  padding-bottom:10px;
+  scroll-snap-type:x mandatory;
+}
+
+.activity-scroll::-webkit-scrollbar{
+  height:8px;
+}
+
+.activity-scroll::-webkit-scrollbar-thumb{
+  background:#cbd5e1;
+  border-radius:4px;
+}
+
+.activity-scroll .activity-card{
+  min-width:260px;
+  flex:0 0 auto;
+  scroll-snap-align:start;
+}
+
+
+
+/* ===== Footer ===== */
+footer{
+  background:var(--blue-dark);
+  color:#fff;
+  text-align:center;
+  padding:30px 15px;
+}
+
+@media(max-width:600px){
+  .activity-media img,
+  .activity-media video{
+    height:180px;
+  }
+}
+
+/* ===== Nav ===== */
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:25px;
+  justify-content:center;
+  margin-top:15px;
+}
+
+nav a{
+  color:#fff;
+  text-decoration:none;
+  font-weight:bold;
+  transition:.2s;
+}
+
+nav a:hover{
+  color:var(--yellow);
+}
+
+/* ===== Hamburger ===== */
+.hamburger{
+  display:none;
+  position:absolute;
+  right:20px;
+  top:25px;
+  cursor:pointer;
+}
+
+.hamburger span{
+  display:block;
+  width:26px;
+  height:3px;
+  background:#fff;
+  margin:5px 0;
+  border-radius:2px;
+  transition:.3s;
+}
+
+/* ===== Mobile ===== */
+@media(max-width:768px){
+  nav{
+    display:none;
+    margin-top:20px;
+  }
+
+  nav.active{
+    display:block;
+  }
+
+  nav ul{
+    flex-direction:column;
+    gap:15px;
+  }
+
+  .hamburger{
+    display:block;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">過往活動</div>
+
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <nav id="menu">
+    <ul>
+      <li><a href="index.html">首頁</a></li>
+      <li><a href="pm.html">幹部資訊</a></li>
+      <li><a href="active.html">過往活動</a></li>
+      <li><a href="pass.html">歷史榮耀</a></li>
+    </ul>
+  </nav>
+  <!--<a href="index.html" class="back-home">回到首頁</a>-->
+</header>
+
+<!-- ===== 近期活動 ===== -->
+<section>
+  <h2>近期活動</h2>
+
+  <div class="activity-grid">
+
+    <div class="activity-card">
+      <div class="activity-media">
+        <img src="巨型排球盃.jpg" alt="巨排排球盃">
+      </div>
+      <div class="activity-content">
+        <h3>巨型排球盃</h3>
+        <span>2025/4/22</span>
+        <p>排球類的趣味競賽。</p>
+        <div class="tag">趣味競賽</div>
+      </div>
+    </div>
+
+    <div class="activity-card">
+      <div class="activity-media">
+        <img src="黑幕排球盃.jpg" alt="黑幕排球盃">
+      </div>
+      <div class="activity-content">
+        <h3>黑幕排球盃</h3>
+        <span>2025/5/28</span>
+        <p>遮住網子，更難預判對手進攻位置及防守佔位。</p>
+        <div class="tag">趣味競賽</div>
+      </div>
+    </div>
+
+    <div class="activity-card">
+      <div class="activity-media">
+        <img src="社團博覽會.jpg" alt="博覽會">
+      </div>
+      <div class="activity-content">
+        <h3>社團博覽會</h3>
+        <span>2025/9/17</span>
+        <p>向新進入大學的學弟妹們推廣排球社。</p>
+        <div class="tag">推廣</div>
+      </div>
+    </div>
+
+    <div class="activity-card">
+      <div class="activity-media">
+        <img src="114新生排球盃.jpg" alt="新生盃">
+      </div>
+      <div class="activity-content">
+        <h3>2025新生排球盃</h3>
+        <span>2025/10/21</span>
+        <p>讓新生彼此熟悉並檢驗基礎課程結果。</p>
+        <div class="tag">比賽</div>
+      </div>
+    </div>
+
+    <div class="activity-card">
+      <div class="activity-media">
+        <video src="新生盃.mp4" controls></video>
+      </div>
+      <div class="activity-content">
+        <h3>新生盃</h3>
+        <span>2025/10/21</span>
+        <p>新生盃精彩比賽來回波回顧。</p>
+        <div class="tag">比賽</div>
+      </div>
+    </div>
+
+    <div class="activity-card">
+      <div class="activity-media">
+        <img src="114校友盃照片.jpg" alt="友誼賽">
+      </div>
+      <div class="activity-content">
+        <h3>114校友盃</h3>
+        <span>2025/12/13</span>
+        <p>與歷屆學長姊相聚並一同交流排球技術。</p>
+        <div class="tag">交流</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== 歷年活動===== -->
+<section>
+  <h2>過往活動</h2>
+
+  <!--校友盃-->
+<button class="accordion-btn">校友盃</button>
+<div class="accordion-content">
+
+  <div class="activity-scroll">
+
+    <div class="activity-card">
+      <div class="activity-media">
+        <img src="113校友盃合照.jpg">
+      </div>
+      <div class="activity-content">
+        <h3>校友盃</h3>
+        <span>2024/6/8</span>
+        <p>與歷屆學長姊交流切磋。</p>
+        <div class="tag">交流</div>
+      </div>
+    </div>
+
+    <div class="activity-card">
+      <div class="activity-media">
+        <img src="113校友盃1.jpg">
+      </div>
+      <div class="activity-content">
+        <h3>校友盃</h3>
+        <span>2024/6/8</span>
+        <p>比賽與互動畫面。</p>
+        <div class="tag">交流</div>
+      </div>
+    </div>
+
+    <div class="activity-card">
+      <div class="activity-media">
+        <img src="112校友盃合照.jpg">
+      </div>
+      <div class="activity-content">
+        <h3>校友盃</h3>
+        <span>2023/4/16</span>
+        <p>校友回娘家交流。</p>
+        <div class="tag">交流</div>
+      </div>
+    </div>
+
+    <div class="activity-card">
+      <div class="activity-media">
+        <img src="112校友盃1.jpg">
+      </div>
+      <div class="activity-content">
+        <h3>校友盃</h3>
+        <span>2023/4/16</span>
+        <p>精彩賽事畫面。</p>
+        <div class="tag">交流</div>
+      </div>
+    </div>
+
+    <div class="activity-card">
+      <div class="activity-media">
+        <img src="108校友盃合照.jpg">
+      </div>
+      <div class="activity-content">
+        <h3>校友盃</h3>
+        <span>2019/11/30</span>
+        <p>歷屆校友大合照。</p>
+        <div class="tag">交流</div>
+      </div>
+    </div>
+
+    <div class="activity-card">
+      <div class="activity-media">
+        <img src="108校友盃1.jpg">
+      </div>
+      <div class="activity-content">
+        <h3>校友盃</h3>
+        <span>2019/11/30</span>
+        <p>比賽紀錄。</p>
+        <div class="tag">交流</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+  <!--聖誕排球盃-->
+  <!-- 聖誕排球盃 -->
+<button class="accordion-btn">聖誕排球盃</button>
+<div class="accordion-content">
+
+  <div class="activity-scroll">
+
+    <div class="activity-card">
+      <div class="activity-media">
+        <img src="113聖誕排球盃合照.jpg">
+      </div>
+      <div class="activity-content">
+        <h3>聖誕排球盃</h3>
+        <span>2024/12/25</span>
+        <p>活動人員大合照。</p>
+        <div class="tag">合照</div>
+      </div>
+    </div>
+
+    <div class="activity-card">
+      <div class="activity-media">
+        <img src="113聖誕排球盃1.jpg">
+      </div>
+      <div class="activity-content">
+        <h3>聖誕排球盃</h3>
+        <span>2024/12/25</span>
+        <p>活動比賽畫面。</p>
+        <div class="tag">比賽</div>
+      </div>
+    </div>
+
+    <div class="activity-card">
+      <div class="activity-media">
+        <img src="112聖誕排球盃.jpg">
+      </div>
+      <div class="activity-content">
+        <h3>聖誕排球盃</h3>
+        <span>2023/12/26</span>
+        <p>活動人員大合照。</p>
+        <div class="tag">合照</div>
+      </div>
+    </div>
+
+    <div class="activity-card">
+      <div class="activity-media">
+        <img src="112聖誕排球盃1.jpg">
+      </div>
+      <div class="activity-content">
+        <h3>聖誕排球盃</h3>
+        <span>2023/12/26</span>
+        <p>活動比賽畫面。</p>
+        <div class="tag">比賽</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</div>
+
+</section>
+
+<footer>
+  © 勤益排球社 Volleyball Club
+</footer>
+
+<!-- ===== Accordion JS ===== -->
+<script>
+  const accBtns = document.querySelectorAll('.accordion-btn');
+
+  accBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const content = btn.nextElementSibling;
+
+      document.querySelectorAll('.accordion-content').forEach(c => {
+        if (c !== content) c.style.display = 'none';
+      });
+
+      content.style.display =
+        content.style.display === 'block' ? 'none' : 'block';
+    });
+  });
+
+  const hamburger = document.getElementById('hamburger');
+  const menu = document.getElementById('menu');
+
+  hamburger.addEventListener('click', () => {
+    menu.classList.toggle('active');
+  });
+
+</script>
+
+</body>
+</html>

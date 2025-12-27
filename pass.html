@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>勤益排球社｜歷史與榮耀</title>
+
+<style>
+:root{
+  --blue-dark:#0f4c81;
+  --blue:#3b82c4;
+  --yellow:#facc15;
+  --bg:#f8fafc;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:"Segoe UI",Arial;
+}
+
+body{
+  background:var(--bg);
+  color:#333;
+}
+
+/* ===== Header ===== */
+header{
+  position:relative;
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  align-items:center;
+  padding:15px 25px;
+  background:linear-gradient(90deg,var(--blue-dark),var(--blue));
+  color:#fff;
+}
+
+/* LOGO 置中 */
+.logo{
+  grid-column:2;
+  text-align:center;
+  font-size:1.7rem;
+  font-weight:800;
+  letter-spacing:3px;
+}
+
+/* ===== Nav ===== */
+nav{
+  grid-column:3;
+  justify-self:end;
+}
+
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:22px;
+}
+
+nav a{
+  color:#fff;
+  text-decoration:none;
+  font-weight:bold;
+  transition:.2s;
+}
+
+nav a:hover{
+  color:var(--yellow);
+}
+
+/* ===== Hamburger ===== */
+.hamburger{
+  display:none;
+  cursor:pointer;
+}
+
+.hamburger span{
+  display:block;
+  width:26px;
+  height:3px;
+  background:#fff;
+  margin:5px 0;
+  border-radius:2px;
+}
+
+/* ===== Mobile ===== */
+@media(max-width:768px){
+  nav{
+    position:absolute;
+    top:100%;
+    right:0;
+    width:220px;
+    background:var(--blue-dark);
+    display:none;
+  }
+
+  nav.active{
+    display:block;
+  }
+
+  nav ul{
+    flex-direction:column;
+    padding:15px;
+    gap:15px;
+  }
+
+  .hamburger{
+    display:block;
+    grid-column:3;
+    justify-self:end;
+  }
+}
+
+/* Sections */
+section{
+  max-width:1000px;
+  margin:auto;
+  padding:60px 20px;
+}
+
+h2{
+  font-size:1.8rem;
+  color:var(--blue-dark);
+  margin-bottom:18px;
+  position:relative;
+}
+
+h2::before{
+  content:"";
+  position:absolute;
+  left:-15px;
+  top:50%;
+  transform:translateY(-50%);
+  width:6px;
+  height:70%;
+  background:var(--yellow);
+  border-radius:3px;
+}
+
+p{
+  line-height:1.8;
+}
+
+/* ===== Timeline ===== */
+.timeline{
+  position:relative;
+  padding-left:30px;
+}
+
+.timeline::before{
+  content:"";
+  position:absolute;
+  left:8px;
+  top:0;
+  bottom:0;
+  width:4px;
+  background:var(--blue);
+  border-radius:2px;
+}
+
+.timeline-item{
+  position:relative;
+  margin-bottom:45px;
+  padding-left:35px;
+}
+
+.timeline-item::before{
+  content:"";
+  position:absolute;
+  left:-2px;
+  top:6px;
+  width:18px;
+  height:18px;
+  background:var(--yellow);
+  border-radius:50%;
+  border:4px solid #fff;
+}
+
+.timeline-item h3{
+  color:var(--blue-dark);
+  margin-bottom:6px;
+}
+
+.timeline-item p{
+  line-height:1.7;
+}
+
+/* ===== Honor ===== */
+.honor-list{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:28px;
+}
+
+.honor-item{
+  background:#fff;
+  border-radius:18px;
+  padding:22px;
+  box-shadow:0 8px 20px rgba(0,0,0,.08);
+  border-top:6px solid var(--yellow);
+  transition:.35s;
+}
+
+.honor-item:hover{
+  transform:translateY(-10px);
+  box-shadow:0 18px 35px rgba(0,0,0,.15);
+}
+
+.honor-item h4{
+  color:var(--blue-dark);
+  margin-bottom:12px;
+}
+
+.honor-item img{
+  width:100%;
+  height:300px;              
+  object-fit:cover;          
+  border-radius:12px;
+  margin-bottom:14px;
+  transition:transform .35s;
+  background:#e5e7eb;        
+}
+
+
+.honor-item:hover img{
+  transform:scale(1.03);
+}
+
+.honor-item p{
+  line-height:1.6;
+  color:#444;
+}
+
+/* ===== Footer ===== */
+footer{
+  background:var(--blue-dark);
+  color:#fff;
+  text-align:center;
+  padding:35px 15px;
+  font-size:.95rem;
+}
+
+/* ===== Nav ===== */
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:25px;
+  justify-content:center;
+  margin-top:15px;
+}
+
+nav a{
+  color:#fff;
+  text-decoration:none;
+  font-weight:bold;
+  transition:.2s;
+}
+
+nav a:hover{
+  color:var(--yellow);
+}
+
+/* ===== Hamburger ===== */
+.hamburger{
+  display:none;
+  position:absolute;
+  right:20px;
+  top:25px;
+  cursor:pointer;
+}
+
+.hamburger span{
+  display:block;
+  width:26px;
+  height:3px;
+  background:#fff;
+  margin:5px 0;
+  border-radius:2px;
+  transition:.3s;
+}
+
+/* ===== Mobile ===== */
+@media(max-width:768px){
+  nav{
+    display:none;
+    margin-top:20px;
+  }
+
+  nav.active{
+    display:block;
+  }
+
+  nav ul{
+    flex-direction:column;
+    gap:15px;
+  }
+
+  .hamburger{
+    display:block;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">勤益排球社</div>
+
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  
+  <nav id="menu">
+    <ul>
+      <li><a href="index.html">首頁</a></li>
+      <li><a href="pm.html">幹部資訊</a></li>
+      <li><a href="active.html">過往活動</a></li>
+      <li><a href="pass.html">歷史榮耀</a></li>
+    </ul>
+  </nav>
+  <!--<a href="index.html" class="back-home">回到首頁</a>-->
+</header>
+
+<section>
+  <h2>社團沿革</h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <h3>創社初期（2004年）</h3>
+      <p>由一群熱愛排球運動的學生自發成立勤益排球社，期望在校園中打造一個能自由揮灑汗水與熱情的舞台。創社初期即以推廣排球運動、凝聚志同道合的同好為核心宗旨，透過固定練習、交流活動與賽事參與，逐步建立社團基礎，讓更多學生能在排球中找到歸屬感與共同成長的夥伴。</p>
+    </div>
+    <div class="timeline-item">
+      <h3>奠定基礎（2019－2022）</h3>
+      <p>在創社初期，勤益排球社即著手建立固定且完善的訓練制度，透過明確的練習時段與循序漸進的教學內容，讓社員在穩定的環境中持續精進球技。隨著訓練模式逐漸成熟，社團也開始形成重視紀律、合作與互相鼓勵的核心文化，為後續發展與傳承奠定堅實的基礎。</p>
+    </div>
+    <div class="timeline-item">
+      <h3>近年發展（2023－今）</h3>
+      <p>近年來，勤益排球社持續以培養團隊精神為核心目標，透過共同訓練、比賽與活動，強化社員之間的默契與向心力。同時，社團也正式創立並經營社群媒體帳號，記錄訓練與活動點滴，提升對外曝光與資訊傳遞效率，讓更多人認識排球社的特色與活力，進一步凝聚校內外的支持與參與。</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>獲獎事蹟</h2>
+  <div class="honor-list">
+
+    <div class="honor-item">
+      <h4>🏆 113學年度 社團人氣獎</h4>
+      <img src="113人氣獎.jpg" alt="113人氣獎">
+      <p>感謝社員支持，讓排球社在 2024 年獲得高度肯定。</p>
+    </div>
+
+    <div class="honor-item">
+      <h4>🏆 112學年度 社團人氣獎</h4>
+      <img src="112人氣獎.jpg" alt="112人氣獎"><br>
+      <p>持續凝聚向心力，展現社團活力。</p>
+    </div>
+
+    <div class="honor-item">
+      <h4>🏆 109學年度 最佳體育性社團</h4>
+      <img src="109最佳體育性社團.jpg" alt="最佳體育性社團">
+      <p>肯定社團長期推廣運動精神的努力。</p>
+    </div>
+
+    <div class="honor-item">
+      <h4>🏆 107學年度 社團人氣獎</h4>
+      <img src="107人氣獎.jpg" alt="107人氣獎">
+      <p>展現排球社深厚的社團文化。</p>
+    </div>
+
+    <div class="honor-item">
+      <h4>🏆 94學年度 體育性第一名</h4>
+      <img src="94年體育性社團第一.jpg" alt="體育性第一">
+      <p>早期即展現卓越的體育表現。</p>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  © 勤益排球社 Volleyball Club
+</footer>
+
+</body>
+</html>
