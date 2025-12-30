@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html lang="zh-Hant">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>勤益排球社</title>
-
-<style>
 :root{
   --blue-dark:#0f4c81;
   --blue:#3b82c4;
@@ -36,7 +28,6 @@ header{
   color:#fff;
 }
 
-/* LOGO 置中 */
 .logo{
   grid-column:2;
   text-align:center;
@@ -178,7 +169,6 @@ footer{
   padding:30px 20px;
 }
 
-/* 聯絡列 */
 .footer-contact{
   display:flex;
   justify-content:center;
@@ -192,7 +182,6 @@ footer{
   letter-spacing:2px;
 }
 
-/* 聯絡按鈕 */
 .contact-item{
   display:flex;
   align-items:center;
@@ -215,80 +204,3 @@ footer{
   background:var(--yellow);
   color:#000;
 }
-</style>
-</head>
-
-<body>
-
-<header>
-  <div></div>
-
-  <div class="logo">勤益排球社</div>
-
-  <div class="hamburger" id="hamburger">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-
-  <nav id="menu">
-    <ul>
-      <li><a href="#">首頁</a></li>
-      <li><a href="pm.html">幹部資訊</a></li>
-      <li><a href="active.html">過往活動</a></li>
-      <li><a href="pass.html">歷史榮耀</a></li>
-    </ul>
-  </nav>
-</header>
-
-<section>
-  <h2>排球社宗旨</h2>
-  <p>
-    推廣排球運動，讓每位社員都能在球場上找到屬於自己的熱情與定位，是我們成立社團的初衷。
-    我們希望透過規律訓練、多元活動與團隊合作，培養彼此間的默契與信任，
-    讓社員在運動中結交夥伴、累積經驗，並在一次次挑戰與成長中，
-    建立自信與對排球的長久熱愛。
-  </p>
-</section>
-
-<section>
-  <h2>上課花絮</h2>
-  <div class="photo-area">
-    <img src="室內上課.jpg">
-    <img src="上課1.jpg">
-    <img src="上課2.jpg">
-    <img src="上課3.jpg">
-  </div>
-</section>
-
-<section>
-  <h2>社團時間與地點</h2>
-  <div class="info-box">
-    📍 勤益科技大學 排球場<br>
-    🕒 每週二、四 17:00–19:00
-  </div>
-</section>
-
-<footer>
-  <div class="footer-contact">
-    <p>聯絡我們</p>
-    <a class="contact-item" href="https://www.instagram.com/ncut_18_volleyballclub/" target="_blank">
-      <img src="IG.png"> Instagram
-    </a>
-    <a class="contact-item" href="https://line.me/R/ti/g/akfDGwz9ca" target="_blank">
-      <img src="line.png"> LINE
-    </a>
-  </div>
-</footer>
-
-<script>
-  const hamburger = document.getElementById('hamburger');
-  const menu = document.getElementById('menu');
-
-  hamburger.addEventListener('click', () => {
-    menu.classList.toggle('active');
-  });
-</script>
-
-</body>
-</html>
